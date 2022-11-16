@@ -14,18 +14,13 @@ main(int argc, char *argv[])
   pid = atoi(argv[1]);
   // priority = atoi(argv[2]);
   if (argv[2][0] == '-'){
-    // printf(1,"Yeh %c",argv[2][0]);
-    // printf(1,"2nd char = %c",argv[2][1]);
     priority = atoi(&argv[2][1])*-1;
-    // printf(1,"priority = %d",priority);
   }
   else{
     priority = atoi(argv[2]);
-    printf(1,"Positive");
   }
-  // printf(1,"This is the atoi %d",priority);
-  if (priority < -20 || priority > 20){
-    printf(2,"Invalid priority (0-20)!\n");
+  if (priority < -20 || priority > 19){
+    printf(2,"Attempt to set nice value out of the range.\nNice values range from -20 to +19.\n");
     exit();
   }
   chpr(pid, priority);
