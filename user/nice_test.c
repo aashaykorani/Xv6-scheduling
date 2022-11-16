@@ -1,3 +1,4 @@
+#include "kernel/defs.h"
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
@@ -5,10 +6,11 @@
 void my_system(char * command,char ** arg){
 
     int pid = fork();
+    if pid
     if (pid == 0) // child
-        exec(command);
+        exec(command,arg);
     else
-        
+        wait();
 }
 
 int main() {
@@ -49,6 +51,5 @@ int main() {
    exec(command2,arg2);
    exec(command,arg);
 
-   
    exit();
 }
