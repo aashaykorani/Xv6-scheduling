@@ -1,19 +1,22 @@
-#include "kernel/defs.h"
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
-#define MAXARGS 10
 
 int main() {
-    struct execcmd {
-        int type;
-        char *argv[MAXARGS];
-        char *eargv[MAXARGS];
-    };
-   // printf() displays the string inside quotation
-   printf(1,"Hello, World!\n");
+
+   printf(1,"--Running PS--\n"); 
    char * command = "ps";
    char **arg = (char *[]){};
    exec(command,arg);
+
+   printf(1,"--Changing the nice value of sh to 5--\n");
+   char * command1 = "nice";
+   char **arg1 = (char *[]){"2","5"};
+   exec(command1,arg1);
+
+   printf(1,"--Changing the nice value of pid = 40--\n");
+    char * command1 = "nice";
+   char **arg1 = (char *[]){"2","5"};
+   exec(command1,arg1);
    exit();
 }
