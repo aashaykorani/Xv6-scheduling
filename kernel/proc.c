@@ -469,7 +469,7 @@ chpr(int pid, int priority)
 		}
 	}
   if (loop_break == 0)
-    cprintf("No process with pid = %d found.\n",pid);
+    cprintf("No process with pid = %d found.\n",pid); // If the loop does not break, it means that the process with the mentioned pid was not found.
 	release(&ptable.lock);
 	return pid;
 }
