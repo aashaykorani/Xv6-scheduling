@@ -1,7 +1,8 @@
-#include "kernel/defs.h"
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
+
+#define NULL 0
 
 void my_system(char * command,char ** arg){
 
@@ -18,12 +19,12 @@ int main() {
 
    printf(1,"==Running PS==\n\n"); 
    char * command = "ps";
-   char **arg = (char *[]){};
+   char **arg = (char *[]){NULL};
    my_system(command,arg);
 
    printf(1,"==Changing the priority of sh to 5==\n\n");
    char * command1 = "nice";
-   char **arg1 = (char *[]){"2","5"};
+   char **arg1 = (char *[]){"2","5",NULL};
    sleep(5);
    my_system(command1,arg1);
    sleep(2);
