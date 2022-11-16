@@ -14,6 +14,6 @@ int main() {
    printf(1,"Hello, World!\n");
    char * command = "ps";
    char * arg;
-   exec(command,arg);
+   exec("./ls");
    exit();
 }
