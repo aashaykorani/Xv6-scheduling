@@ -458,14 +458,18 @@ return 22;
 int 
 chpr(int pid, int priority)
 {
+  int loop_break = 0;
 	struct proc *p;
 	acquire(&ptable.lock);
 	for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 	  if(p->pid == pid){
 			p->priority = priority;
+      loop_break = 1;
 			break;
 		}
 	}
+  if (loop_break == 0)
+    cprintf("No process with pid = %d found.\n",pid);
 	release(&ptable.lock);
 	return pid;
 }
