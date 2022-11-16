@@ -21,38 +21,32 @@ int main() {
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
 
-//    printf(1,"==Changing the priority of sh to 5==\n\n");
-//    char * command1 = "nice";
-//    char **arg1 = (char *[]){"2","5",NULL};
-//    sleep(5);
-//    my_system(command1,arg1);
-//    sleep(2);
-//    my_system(command,arg);
+   printf(1,"\n==Changing the priority of sh to 5==\n\n");
+   static char *arg1[]= {"./nice","2","5",NULL};
+   my_system(arg1);
+   printf(1, char *, ...)
+   my_system(arg);
    
-//    printf(1,"==Changing the priority of sh to -5==\n\n");
-//    char * command3 = "nice";
-//    char **arg3 = (char *[]){"2","-5"};
-//    my_system(command3,arg3);
-//    my_system(command,arg);
+   printf(1,"\n==Changing the priority of sh to -5==\n\n");
+   static char *arg3[]= {"./nice","2","-5",NULL};
+   my_system(arg3);
+   my_system(arg);
 
-//    printf(1,"==Changing the priority of sh to 20==\n\n");
-//    char * command4 = "nice";
-//    char **arg4 = (char *[]){"2","20"};
-//    my_system(command4,arg4);
-//    my_system(command,arg);
+   printf(1,"\n==Changing the priority of sh to 20==\n\n");
+   static char *arg4[]= {"./nice","2","20",NULL};
+   my_system(arg4);
+   my_system(arg);
    
-//    printf(1,"==Changing the priority of sh to -22==\n\n");
-//    char * command5 = "nice";
-//    char **arg5 = (char *[]){"2","-22"};
-//    my_system(command5,arg5);
-//    my_system(command,arg);
+   printf(1,"\n==Changing the priority of sh to -22==\n\n");
+  static char *arg5[]= {"./nice","2","-22",NULL};
+   my_system(arg5);
+   my_system(arg);
 
 
-//    printf(1,"==Changing the priority of pid = 40==\n");
-//    char * command2 = "nice";
-//    char **arg2 = (char *[]){"40","5"};
-//    my_system(command2,arg2);
-//    my_system(command,arg);
+   printf(1,"\n==Changing the priority of pid = 40==\n");
+   static char *arg2[]= {"./nice","40","5",NULL};
+   my_system(arg2);
+   my_system(arg);
 
    exit();
 }
