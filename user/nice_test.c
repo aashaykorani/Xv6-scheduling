@@ -13,7 +13,7 @@ int main() {
    // printf() displays the string inside quotation
    printf(1,"Hello, World!\n");
    char * command = "ps";
-   char * arg;
-   exec("./ls");
+   char **arg = (char *[]){};
+   exec(command,arg);
    exit();
 }
