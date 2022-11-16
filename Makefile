@@ -152,9 +152,10 @@ UPROGS=\
 	$U/_ps\
 	$U/_nice\
 	$U/_dum\
+	$U/_nice_test\
 
-fs.img: mkfs/mkfs README.md nice_test.sh $(UPROGS)
-	./mkfs/mkfs fs.img README.md nice_test.sh $(UPROGS)
+fs.img: mkfs/mkfs README.md $(UPROGS)
+	./mkfs/mkfs fs.img README.md $(UPROGS)
 
 xv6.img: $K/bootblock $K/kernel fs.img
 	dd if=$K/bootblock of=xv6.img
