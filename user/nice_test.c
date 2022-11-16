@@ -2,9 +2,18 @@
 #include "kernel/stat.h"
 #include "user.h"
 
+void my_system(char * command,char ** arg){
+
+    int pid = fork();
+    if (pid == 0) // child
+        exec(command);
+    else
+        
+}
+
 int main() {
 
-   printf(1,"--Running PS--\n"); 
+   printf(1,"==Running PS==\n"); 
    char * command = "ps";
    char **arg = (char *[]){};
    exec(command,arg);
