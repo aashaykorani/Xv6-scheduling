@@ -13,6 +13,8 @@ main(int argc, char *argv[])
   }
   pid = atoi(argv[1]);
   priority = atoi(argv[2]);
+  if argv[2][0] == 
+  printf(1,"This is the atoi %d",priority);
   if (priority < 0 || priority > 20){
     printf(2,"Invalid priority (0-20)!\n");
     exit();
