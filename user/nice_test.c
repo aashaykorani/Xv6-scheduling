@@ -2,9 +2,11 @@
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
-#include "kernel/fcntl.h"
 
-int main(){
-    printf(1,"Helloooo");
-    return 0;
+int main() {
+   // printf() displays the string inside quotation
+   printf(1,"Hello, World!\n");
+   constant char * c = 'ps';
+   exec(c);
+   exit();
 }
