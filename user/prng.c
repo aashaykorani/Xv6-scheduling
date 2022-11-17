@@ -25,8 +25,9 @@ int main(){
             values[i] = (q)%100;
         }
     }
-    for(int i = 0; i<5;i++){
-        // printf(1,"%d\n",values[i]);
+    int max,min,mean = 0;
+    for(int i = 0; i<100;i++){
+        printf(1,"%d, ",values[i]);
         if (i==0){
             max = values[i];
             min = values[i];
@@ -40,7 +41,7 @@ int main(){
         }
         mean += values[i];
     }
-    printf(1,"Max = %d, Min = %d, Mean = %d\n",max,min,mean/100);
+    printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/100);
     exit();
 }
 
@@ -64,29 +65,4 @@ int main(){
 // 	unsigned int t = x ^ (x << 11);
 // 	x = y; y = z; z = w;
 // 	return w = w ^ (w >> 19) ^ t ^ (t >> 8);
-// }
-
-// int main(){
-//     unsigned int values[100];
-//     for(int i = 0; i<5;i++){
-//         values[i] = XORShift();
-//     }
-//     // int max,min,mean = 0;
-//     for(int i = 0; i<5;i++){
-//         printf(1,"%d\n",values[i]);
-//         // if (i==0){
-//         //     max = values[i];
-//         //     min = values[i];
-//         //     // mean += values[i];
-//         // }
-//         // else{
-//         //     if (values[i] >= max)
-//         //         max = values[i];
-//         //     else
-//         //         min = values[i];
-//         // }
-//         // mean += values[i];
-//     }
-//     // printf(1,"Max = %d, Min = %d, Mean = %d\n",max,min,mean/100);
-//     exit();
 // }
