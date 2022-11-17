@@ -130,7 +130,7 @@ long random_at_most(long max) {
 
 
 
-unsigned long long int xorshift64star(int max) {
+unsigned long long int xorshift64star() {
         static unsigned long long int x = 1; /* initial seed must be nonzero, don't use a static variable for the state if multithreaded */
         x ^= x >> 12;
         x ^= x << 25;
@@ -141,10 +141,27 @@ unsigned long long int xorshift64star(int max) {
         // return (q%max);
 }
 
+long random(long max){
+    unsigned long
+        // max <= RAND_MAX < ULONG_MAX, so this is okay.
+        num_bins = (unsigned long) max + 1,
+        num_rand = (unsigned long) RAND_MAX + 1,
+        bin_size = num_rand / num_bins,
+        defect   = num_rand % num_bins;
+
+        long x;
+        do {
+        x = xorshift64star();
+        }
+        while (num_rand - defect <= (unsigned long)x);
+
+        return x/bin_size;
+}
+
 int main(){
     int values[100];
-    for(int i = 5;i<100;i++){
-        values[i-5] = xorshift64star(i);
+    for(int i = 0;i<100;i++){
+        values[i-5] = random(10);
     }
     int max,min,mean = 0;
     for(int i = 0; i<100;i++){
