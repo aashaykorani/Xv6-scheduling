@@ -20,13 +20,13 @@ int main() {
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
 
-   printf(1,"\n==Changing the priority of sh to 5==\n\n");
+   printf(1,"\n==Changing the priority of sh to 5==\n");
    static char *arg1[]= {"./nice","2","5",NULL};
    my_system(arg1);
    printf(1,"\n");
    my_system(arg);
    
-   printf(1,"\n==Changing the priority of sh to -5==\n\n");
+   printf(1,"\n==Changing the priority of sh to -5==\n");
    static char *arg3[]= {"./nice","2","-5",NULL};
    my_system(arg3);
    printf(1,"\n");
@@ -45,7 +45,7 @@ int main() {
    my_system(arg);
 
 
-   printf(1,"\n==Changing the priority of pid = 40==\n");
+   printf(1,"\n==Changing the priority of pid = 40==\n\n");
    static char *arg2[]= {"./nice","40","5",NULL};
    my_system(arg2);
    printf(1,"\n");
