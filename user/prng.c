@@ -29,17 +29,15 @@ unsigned int xorwow(struct xorwow_state *state)
 }
 
 unsigned long long int xorshift64star(void) {
-
-    for(int i = 1;i<=10;i++){
         static unsigned long long int x = 1; /* initial seed must be nonzero, don't use a static variable for the state if multithreaded */
         x ^= x >> 12;
         x ^= x << 25;
         x ^= x >> 27;
         return x * 0x2545F4914F6CDD1DULL;
-    }
 }
 
 int main(){
+    for(int )
     printf(1,"%d\n",xorshift64star());
     exit();
 }
