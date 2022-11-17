@@ -12,11 +12,11 @@ unsigned int XORShift() {
 
 int main(){
     unsigned int values[100];
-    for(int i = 0; i<100;i++){
+    for(int i = 0; i<5;i++){
         values[i] = XORShift();
     }
     // int max,min,mean = 0;
-    for(int i = 0; i<100;i++){
+    for(int i = 0; i<5;i++){
         printf(1,"%d\n",values[i]);
         // if (i==0){
         //     max = values[i];
