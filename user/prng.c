@@ -12,16 +12,35 @@ unsigned long long int xorshift64star(void) {
 }
 
 int main(){
-    for(int i = 0;i<10;i++){
+    int values[100];
+    for(int i = 0;i<100;i++){
         int q = xorshift64star();
-        printf(1,"Q = %d")
+        // printf(1,"Q = %d\n",q);
         if (q < 0){
-            printf(1,"%d",q*-1);
+            // printf(1,"%d\n",(q*-1)%100);
+            values[i] = (q*-1)%100;
         }
         else{
-            printf(1,"%d",q);
+            // printf(1,"%d\n",q%100);
+            values[i] = (q)%100;
         }
     }
+    for(int i = 0; i<5;i++){
+        // printf(1,"%d\n",values[i]);
+        if (i==0){
+            max = values[i];
+            min = values[i];
+            // mean += values[i];
+        }
+        else{
+            if (values[i] >= max)
+                max = values[i];
+            else
+                min = values[i];
+        }
+        mean += values[i];
+    }
+    printf(1,"Max = %d, Min = %d, Mean = %d\n",max,min,mean/100);
     exit();
 }
 
