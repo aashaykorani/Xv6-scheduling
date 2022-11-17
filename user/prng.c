@@ -10,11 +10,6 @@ unsigned int XORShift() {
 	return w = w ^ (w >> 19) ^ t ^ (t >> 8);
 }
 
-unsigned int XORShift_param(unsigned int x, unsigned int y, unsigned int z, unsigned int w) {
-	unsigned int t = x ^ (x << 11);
-	x = y; y = z; z = w;
-	return w = w ^ (w >> 19) ^ t ^ (t >> 8);
-}
 
 int main(){
     unsigned int values[10];
@@ -22,7 +17,7 @@ int main(){
         values[i] = XORShift();
     }
     for(int i = 0; i<10;i++){
-        printf(1,"%d\n",values[i]);
+        // printf(1,"%d\n",values[i]);
     }
     exit();
 }
