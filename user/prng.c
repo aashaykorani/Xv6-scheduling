@@ -27,6 +27,12 @@
 /* see http://www.math.keio.ac.jp/matumoto/emt.html or email       */
 /* matumoto@math.keio.ac.jp                                        */
 
+
+#include "kernel/types.h"
+#include "kernel/stat.h"
+#include "user.h"
+
+
 /* Period parameters */  
 #define N 624
 #define M 397
@@ -121,9 +127,7 @@ long random_at_most(long max) {
 
 
 
-// #include "kernel/types.h"
-// #include "kernel/stat.h"
-// #include "user.h"
+
 
 
 // unsigned long long int xorshift64star(void) {
@@ -137,8 +141,7 @@ long random_at_most(long max) {
 int main(){
     int values[100];
     for(int i = 0;i<100;i++){
-        int q = random_at_most(100);
-        values[i] = q;
+        values[i] = random_at_most(100);
     }
     int max,min,mean = 0;
     for(int i = 0; i<100;i++){
