@@ -3,17 +3,25 @@
 #include "user.h"
 
 
-unsigned long long int xorshift64star(int max) {
+unsigned long long int xorshift64star(void) {
         static unsigned long long int x = 1; /* initial seed must be nonzero, don't use a static variable for the state if multithreaded */
         x ^= x >> 12;
         x ^= x << 25;
         x ^= x >> 27;
-        return (x * 0x2545F4914F6CDD1DULL)%max;
+        return (x * 0x2545F4914F6CDD1DULL);
 }
 
 int main(){
-    for(int i = 0;i<10;i++)
-        printf(1,"%d\n",xorshift64star(10));
+    for(int i = 0;i<10;i++){
+        int q = xorshift64star();
+        printf(1,"Q = %d")
+        if (q < 0){
+            printf(1,"%d",q*-1);
+        }
+        else{
+            printf(1,"%d",q);
+        }
+    }
     exit();
 }
 
