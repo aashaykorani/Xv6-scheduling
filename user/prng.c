@@ -10,14 +10,26 @@ unsigned int XORShift() {
 	return w = w ^ (w >> 19) ^ t ^ (t >> 8);
 }
 
-
 int main(){
     unsigned int values[10];
     for(int i = 0; i<10;i++){
         values[i] = XORShift();
     }
+    int max,min,mean = 0;
     for(int i = 0; i<10;i++){
         // printf(1,"%d\n",values[i]);
+        if (i==0){
+            max = values[i];
+            min = values[i];
+            mean += values[i];
+        }
+        else{
+            if (values[i] > max)
+                max = values[i];
+            else
+                min = values[i];
+            mean += values[i];
+        }
     }
     exit();
 }
