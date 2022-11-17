@@ -9,7 +9,7 @@ void my_system(char *arg[]){
     int pid = fork();
     if (pid == -1)
         exit();
-    if (pid == 0) // child
+    if (pid == 0)
         exec(arg[0],arg);
     else
         wait();
