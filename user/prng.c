@@ -11,5 +11,8 @@ unsigned int XORShift() {
 }
 
 int main(){
-    for(int i = )
+    for(int i = 1; i<=10;i++){
+        printf(1,"%d\n",XORShift());
+    }
+    exit();
 }
