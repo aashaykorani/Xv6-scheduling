@@ -135,10 +135,10 @@ unsigned long long int xorshift64star(int max) {
         x ^= x >> 12;
         x ^= x << 25;
         x ^= x >> 27;
-        int q = x * 0x2545F4914F6CDD1DULL;
-        if (q<0)
-            return ((q*-1)%max);
-        return (q%max);
+        return x * 0x2545F4914F6CDD1DULL;
+        // if (q<0)
+        //     return ((q*-1)%max);
+        // return (q%max);
 }
 
 int main(){
