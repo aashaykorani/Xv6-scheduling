@@ -48,8 +48,6 @@ int main() {
    printf(1,"\n==Changing the priority of pid = 40==\n\n");
    static char *arg2[]= {"./nice","40","5",NULL};
    my_system(arg2);
-   printf(1,"\n");
-   my_system(arg);
 
    exit();
 }
