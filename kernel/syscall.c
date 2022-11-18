@@ -88,7 +88,6 @@ extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_cps(void);
 extern int sys_chpr(void);
-extern int sys_prng(void);
 
 static int (*syscalls[])(void) = {
     [SYS_fork] sys_fork,   [SYS_exit] sys_exit,     [SYS_wait] sys_wait,
@@ -100,7 +99,6 @@ static int (*syscalls[])(void) = {
     [SYS_link] sys_link,   [SYS_mkdir] sys_mkdir,   [SYS_close] sys_close,
     [SYS_cps] sys_cps,
     [SYS_chpr] sys_chpr,
-    [SYS_prng] sys_prng,
 };
 
 void syscall(void) {

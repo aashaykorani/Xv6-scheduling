@@ -30,7 +30,6 @@ int sleep(int);
 int uptime(void);
 int cps(void);
 int chpr(int pid, int priority);
-long prng(long max);
 
 // ulib.c
 int stat(char *, struct stat *);
