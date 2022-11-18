@@ -1,7 +1,7 @@
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
-#include "kernel/prng.h"
+#include "kernel/prng.c"
 
 
 int main(){
@@ -13,7 +13,7 @@ int main(){
     }
     int max,min,mean= 0;
     for(int i = 0; i<size;i++){
-        // printf(1,"%d, ",values[i]);
+        printf(1,"%d, ",values[i]);
         if (i==0){
             max = values[i];
             min = values[i];
