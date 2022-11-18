@@ -29,26 +29,31 @@ long random(long max){
 }
 
 int main(){
-    int values[1000];
-    for(int i = 0;i<5;i++){
-        values[i] = random(100);
+    for(int i = 500;i<1000;i++){
+        printf(1,"%d ,",i);
+        int values[i];
+        values[0] = 1;
     }
-    int max,min,mean= 0;
-    for(int i = 0; i<100;i++){
-        // printf(1,"%d, ",values[i]);
-        if (i==0){
-            max = values[i];
-            min = values[i];
-        }
-        else{
-            if (values[i] > max)
-                max = values[i];
-            else if (values[i] < min)
-                min = values[i];
-        }
-        mean += values[i];
-    }
-    printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/100);
+    // printf(1,"%d",values[0]);
+    // for(int i = 0;i<999;i++){
+    //     values[i] = random(100);
+    // }
+    // int max,min,mean= 0;
+    // for(int i = 0; i<999;i++){
+    //     // printf(1,"%d, ",values[i]);
+    //     if (i==0){
+    //         max = values[i];
+    //         min = values[i];
+    //     }
+    //     else{
+    //         if (values[i] > max)
+    //             max = values[i];
+    //         else if (values[i] < min)
+    //             min = values[i];
+    //     }
+    //     mean += values[i];
+    // }
+    // printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/100);
     exit();
 }
 
