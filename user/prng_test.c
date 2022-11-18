@@ -1,7 +1,7 @@
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
-#include "kernel/prng.c"
+#include "kernel/prng.h"
 
 
 int main(){
