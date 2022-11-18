@@ -22,7 +22,6 @@ long random(long max){
         long x;
         do {
         x = xorshift64star();
-        printf(1,"%d, ",x);
         }
         while (num_rand - defect <= (unsigned long)x);
 
@@ -30,27 +29,26 @@ long random(long max){
 }
 
 int main(){
-    // int values[100];
+    int values[1000];
     for(int i = 0;i<5;i++){
-        printf(1,"\niteration %d\n",i);
-        random(100);
+        values[i] = random(100);
     }
-    // int max,min,mean= 0;
-    // for(int i = 0; i<100;i++){
-    //     // printf(1,"%d, ",values[i]);
-    //     if (i==0){
-    //         max = values[i];
-    //         min = values[i];
-    //     }
-    //     else{
-    //         if (values[i] > max)
-    //             max = values[i];
-    //         else if (values[i] < min)
-    //             min = values[i];
-    //     }
-    //     mean += values[i];
-    // }
-    // // printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/100);
+    int max,min,mean= 0;
+    for(int i = 0; i<100;i++){
+        // printf(1,"%d, ",values[i]);
+        if (i==0){
+            max = values[i];
+            min = values[i];
+        }
+        else{
+            if (values[i] > max)
+                max = values[i];
+            else if (values[i] < min)
+                min = values[i];
+        }
+        mean += values[i];
+    }
+    printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/100);
     exit();
 }
 
