@@ -6,6 +6,9 @@
 #include "kernel/x86.h"
 #include "kernel/proc.h"
 #include "kernel/spinlock.h"
+#include "kernel/proc.c"
+
+int bleh = random(100);
 
 struct {
   struct spinlock lock;
