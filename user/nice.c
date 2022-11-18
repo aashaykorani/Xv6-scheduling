@@ -12,7 +12,6 @@ main(int argc, char *argv[])
     exit();
   }
   pid = atoi(argv[1]);
-  // priority = atoi(argv[2]);
   if (argv[2][0] == '-'){
     priority = atoi(&argv[2][1])*-1;
   }
@@ -20,8 +19,7 @@ main(int argc, char *argv[])
     priority = atoi(argv[2]);
   }
   if (priority < -20 || priority > 19){
-    printf(2,"Attempt to set nice value out of the range.\nNice values range from -20 to +19.\n");
-    exit();
+    printf(2,"Attempt to set nice value out of the range.\nNice values range from -20 to +19.\nSetting to the nice ");
   }
   chpr(pid, priority);
   exit();
