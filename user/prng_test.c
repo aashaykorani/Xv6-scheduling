@@ -1,7 +1,7 @@
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
-#include "kernel/prng.h"
+#include "kernel/prng.c"
 
 
 int main(){
@@ -9,7 +9,7 @@ int main(){
     int values[size];
 
     for(int i = 0;i<size;i++){
-        values[i] = random(100);
+        values[i] = random(100); // Calling random function from the included prng file.
     }
     int max,min,mean= 0;
     for(int i = 0; i<size;i++){
