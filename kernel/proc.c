@@ -463,7 +463,12 @@ chpr(int pid, int priority)
 	acquire(&ptable.lock);
 	for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 	  if(p->pid == pid){
-			p->priority = priority;
+      if (priority < -20)
+        p->priority = -20;
+      else if (priority > 19)
+        p->priority = 19;
+			else
+        p->priority = priority;
       loop_break = 1;
 			break;
 		}
