@@ -49,7 +49,7 @@ int main(){
         }
         mean += values[i];
     }
-    printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/100);
+    printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/size);
     exit();
 }
 
