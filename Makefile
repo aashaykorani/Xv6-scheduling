@@ -153,7 +153,7 @@ UPROGS=\
 	$U/_nice\
 	$U/_dum\
 	$U/_nice_test\
-	$U/_prng\
+	$U/_prng_test\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	./mkfs/mkfs fs.img README.md $(UPROGS)
