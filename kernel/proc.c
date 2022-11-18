@@ -8,7 +8,6 @@
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
 
-int bleh = random(100);
 
 struct {
   struct spinlock lock;
