@@ -483,6 +483,10 @@ chpr(int pid, int priority)
 }
 
 int change_scheduler(int algo){
+  if (algo == 1)
+    cprintf("LOTTERY\n");
+  if (algo == 0)
+    cprintf("ROUND ROBIN");
   scheduling_algorithm = algo;
   return 0;
 }
