@@ -301,6 +301,7 @@ void scheduler(void) {
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
       foundproc = 1;
+      cprintf("Switched to %s",p->name);
       proc = p;
       switchuvm(p);
       p->state = RUNNING;
