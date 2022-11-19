@@ -252,8 +252,12 @@ int wait(void) {
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
 void scheduler(void) {
+  cprintf("Algo = %d",scheduling_algorithm);
   struct proc *p;
   int foundproc = 1;
+  // int count = 0;
+  // long golden_ticket = 0;
+  // int total_no_tickets = 0;
 
   for (;;) {
     // Enable interrupts on this processor.
@@ -446,14 +450,14 @@ sti();
 
 //Loop over process table looking for process with pid.
 acquire(&ptable.lock);
-cprintf("name \t pid \t state \t priority \n");
+cprintf("name \t pid \t state \t priority \t Tickets \n");
 for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
   if(p->state == SLEEPING)
-	  cprintf("%s \t %d \t SLEEPING \t %d \n ", p->name,p->pid,p->priority);
+	  cprintf("%s \t %d \t SLEEPING \t %d \t %d \n ", p->name,p->pid,p->priority,p->tickets);
 	else if(p->state == RUNNING)
- 	  cprintf("%s \t %d \t RUNNING \t %d \n ", p->name,p->pid,p->priority);
+ 	  cprintf("%s \t %d \t RUNNING \t %d \t %d \n ", p->name,p->pid,p->priority,p->tickets);
 	else if(p->state == RUNNABLE)
- 	  cprintf("%s \t %d \t RUNNABLE \t %d \n ", p->name,p->pid,p->priority);
+ 	  cprintf("%s \t %d \t RUNNABLE \t %d \t %d \n ", p->name,p->pid,p->priority,p->tickets);
 }
 release(&ptable.lock);
 return 22;
