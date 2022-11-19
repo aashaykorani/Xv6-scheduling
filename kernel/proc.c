@@ -301,7 +301,7 @@ void scheduler(void) {
         count += p->tickets;
         continue;
       }
-      
+
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
@@ -311,9 +311,7 @@ void scheduler(void) {
       p->state = RUNNING;
       if(p->pid > 3)
         p->time+=1;
-      // if(p->state == RUNNING){
-      //   cprintf("Running process %s with tickets %d\n",p->name,p->tickets);
-      // }
+      
       swtch(&cpu->scheduler, proc->context);
       switchkvm();
       if(p->pid>3)
