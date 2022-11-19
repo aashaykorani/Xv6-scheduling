@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
   int pid;
   int k, n;
   int x, z;
-
+  assign_tickets(20);
   if(argc < 2)
 	n = 1; //Default
   else
