@@ -98,7 +98,7 @@ int sys_assign_tickets(void){
   int tickets;
   if(argint(0,&tickets)<0)
     return -1;
-  // assign_tickets(tickets);
+  assign_tickets(tickets);
   // acquire(&ptable.lock);
   proc->tickets = tickets;
   return tickets;

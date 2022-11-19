@@ -7,6 +7,7 @@
 #include "kernel/proc.h"
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
+// #include "user/user.h"
 
 int scheduling_algorithm = 0;
 
@@ -304,7 +305,9 @@ void scheduler(void) {
       proc = p;
       switchuvm(p);
       p->state = RUNNING;
-      if()
+      if(p->state == RUNNING){
+        cprintf("Running process %s with tickets %d\n",p->name,p->tickets);
+      }
       swtch(&cpu->scheduler, proc->context);
       switchkvm();
 
@@ -521,5 +524,12 @@ int change_scheduler(int algo){
     cprintf("Scheduling algorithm now changed from ROUND ROBIN to LOTTERY SCHEDULING\n");
   if (scheduling_algorithm == 0)
     cprintf("Scheduling algorithm now changed from LOTTERY SCHEDULING to ROUND ROBIN\n");
+  return 0;
+}
+
+int assign_tickets(int tickets){
+  acquire(&ptable.lock);
+  proc->tickets = tickets;
+  release(&ptable.lock);
   return 0;
 }
