@@ -155,6 +155,8 @@ int fork(void) {
   // lock to force the compiler to emit the np->state write last.
   acquire(&ptable.lock);
   np->state = RUNNABLE;
+  // np->priority = 2;
+  np->tickets = proc->tickets;
   release(&ptable.lock);
 
   return pid;
