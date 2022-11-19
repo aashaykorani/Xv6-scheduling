@@ -487,6 +487,6 @@ int change_scheduler(int algo){
   if (scheduling_algorithm == 1)
     cprintf("Scheduling algorithm now changed from ROUND ROBIN to LOTTERY SCHEDULING\n");
   if (scheduling_algorithm == 0)
-    cprintf("Scheduling algorithm now changed to ROUND ROBIN\n");
+    cprintf("Scheduling algorithm now changed from LOTTERY SCHEDULING to ROUND ROBIN\n");
   return 0;
 }
