@@ -252,7 +252,7 @@ int wait(void) {
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
 void scheduler(void) {
-  cprintf("Algo = %d",scheduling_algorithm);
+  cprintf("Algo = %d\n",scheduling_algorithm);
   struct proc *p;
   int foundproc = 1;
   // int count = 0;
