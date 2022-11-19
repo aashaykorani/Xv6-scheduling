@@ -261,8 +261,7 @@ void scheduler(void) {
   for (;;) {
     // Enable interrupts on this processor.
     sti();
-    // if(scheduling_algorithm==1)
-    //   cprintf("Algo = %d\n",scheduling_algorithm);
+
 
     if (!foundproc)
       hlt();
@@ -271,6 +270,23 @@ void scheduler(void) {
 
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
+
+    // My code
+    golden_ticket = 0;
+    count = 0;
+    total_no_tickets = 0;
+
+    //loop over process table and increment total tickets if a runnable process is found 
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+    {
+      if(p->state==RUNNABLE){
+        total_no_tickets+=p->tickets;
+      }
+    }
+
+    golden_ticket = random(total_no_tickets);
+    // end
+
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
       if (p->state != RUNNABLE)
         continue;
