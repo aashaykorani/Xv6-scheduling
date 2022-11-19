@@ -30,6 +30,7 @@ int sleep(int);
 int uptime(void);
 int cps(void);
 int chpr(int pid, int priority);
+int change_scheduler(int algo);
 
 // ulib.c
 int stat(char *, struct stat *);

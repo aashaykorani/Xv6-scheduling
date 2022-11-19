@@ -8,6 +8,8 @@
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
 
+int scheduling_algorithm;
+scheduling_algorithm = 0;
 
 struct {
   struct spinlock lock;
@@ -479,4 +481,8 @@ chpr(int pid, int priority)
     cprintf("No process with pid = %d found.\n",pid); // If the loop does not break, it means that the process with the mentioned pid was not found.
 	release(&ptable.lock);
 	return pid;
+}
+
+int change_scheduler(int algo){
+
 }

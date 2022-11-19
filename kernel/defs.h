@@ -125,6 +125,7 @@ void wakeup(void *);
 void yield(void);
 int cps(void);
 int chpr(int pid, int priority);
+int change_scheduler(int algo);
 
 // swtch.S
 void swtch(struct context **, struct context *);
