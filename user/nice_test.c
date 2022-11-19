@@ -7,6 +7,7 @@
 void my_system(char *arg[]){
 
     int pid = fork();
+    printf(1,"PID = %d",getpid());
     if (pid == -1)
         exit();
     if (pid == 0)
@@ -16,6 +17,7 @@ void my_system(char *arg[]){
 }
 
 int main() {
+    printf(1,"PID = %d",getpid());
    printf(1,"==Running PS to show the inital state==\n\n"); 
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
