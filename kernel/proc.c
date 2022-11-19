@@ -46,6 +46,7 @@ found:
   p->state = EMBRYO;
   p->pid = nextpid++;
   p->priority = 15;
+  p->time = 0;
   p->tickets = 10;
   release(&ptable.lock);
 
@@ -292,7 +293,6 @@ void scheduler(void) {
 
     golden_ticket = random(total_no_tickets);
     // end
-    int time = 0;
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
       if (p->state != RUNNABLE)
         continue;
@@ -309,15 +309,15 @@ void scheduler(void) {
       proc = p;
       switchuvm(p);
       p->state = RUNNING;
-      if(p->pid > 2)
-        time+=1;
+      if(p->pid > 3)
+        p->time+=1;
       // if(p->state == RUNNING){
       //   cprintf("Running process %s with tickets %d\n",p->name,p->tickets);
       // }
       swtch(&cpu->scheduler, proc->context);
       switchkvm();
-      if(p->pid>2)
-        cprintf("%s ran for %d\n",p->name,time);
+      if(p->pid>3)
+        cprintf("%s ran for %d\n",p->name,p->time);
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       proc = 0;

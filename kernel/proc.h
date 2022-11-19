@@ -74,6 +74,7 @@ struct proc {
   int pid;                    // Process ID
   int priority;               // Priority of the process
   int tickets;                // Number of tickets assigned to the process
+  int time;                   // Number of times the process was in running state.
   struct proc *parent;        // Parent process
   struct trapframe *tf;       // Trap frame for current syscall
   struct context *context;    // swtch() here to run process
