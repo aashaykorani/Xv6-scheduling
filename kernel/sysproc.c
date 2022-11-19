@@ -7,6 +7,7 @@
 #include "kernel/memlayout.h"
 #include "kernel/mmu.h"
 #include "kernel/proc.h"
+#include "user/user.h"
 
 int sys_fork(void) { return fork(); }
 
@@ -98,7 +99,8 @@ int sys_assign_tickets(void){
   int tickets;
   if(argint(0,&tickets)<0)
     return -1;
+  // assign_tickets(tickets);
   // acquire(&ptable.lock);
-  // proc->tickets = tickets;
+  proc->tickets = tickets;
   return tickets;
 }

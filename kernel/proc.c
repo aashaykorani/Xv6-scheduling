@@ -523,8 +523,3 @@ int change_scheduler(int algo){
     cprintf("Scheduling algorithm now changed from LOTTERY SCHEDULING to ROUND ROBIN\n");
   return 0;
 }
-
-int assign_tickets(int tickets){
-  acquire(&ptable.lock);
-  
-}
