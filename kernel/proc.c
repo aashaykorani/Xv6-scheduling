@@ -305,9 +305,9 @@ void scheduler(void) {
       proc = p;
       switchuvm(p);
       p->state = RUNNING;
-      if(p->state == RUNNING){
-        cprintf("Running process %s with tickets %d\n",p->name,p->tickets);
-      }
+      // if(p->state == RUNNING){
+      //   cprintf("Running process %s with tickets %d\n",p->name,p->tickets);
+      // }
       swtch(&cpu->scheduler, proc->context);
       switchkvm();
 
@@ -528,6 +528,7 @@ int change_scheduler(int algo){
 }
 
 int assign_tickets(int tickets){
+  cprintf("Yahin hum mai\n");
   acquire(&ptable.lock);
   proc->tickets = tickets;
   release(&ptable.lock);

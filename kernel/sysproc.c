@@ -100,6 +100,6 @@ int sys_assign_tickets(void){
     return -1;
   assign_tickets(tickets);
   // acquire(&ptable.lock);
-  proc->tickets = tickets;
+  // proc->tickets = tickets;
   return tickets;
 }
