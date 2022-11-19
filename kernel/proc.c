@@ -7,6 +7,7 @@
 #include "kernel/proc.h"
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
+#include "user/user.h"
 
 int scheduling_algorithm = 0;
 
@@ -521,4 +522,9 @@ int change_scheduler(int algo){
   if (scheduling_algorithm == 0)
     cprintf("Scheduling algorithm now changed from LOTTERY SCHEDULING to ROUND ROBIN\n");
   return 0;
+}
+
+int assign_tickets(int tickets){
+  acquire(&ptable.lock);
+  
 }
