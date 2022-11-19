@@ -1,3 +1,4 @@
+// #include "kernel/defs.h"
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
@@ -7,7 +8,7 @@
 void my_system(char *arg[]){
 
     int pid = fork();
-    printf(1,"PID = %d",getpid());
+    printf(1,"PID = %d\n",getpid());
     if (pid == -1)
         exit();
     if (pid == 0)
@@ -17,7 +18,8 @@ void my_system(char *arg[]){
 }
 
 int main() {
-    printf(1,"PID = %d",getpid());
+    assign_tickets(20);
+    printf(1,"PID = %d\n",getpid());
    printf(1,"==Running PS to show the inital state==\n\n"); 
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
