@@ -301,7 +301,8 @@ void scheduler(void) {
         count += p->tickets;
         continue;
       }
-      
+       else if (count > total_no_tickets)
+        cprintf("Extra: %d | %d | %d\n", count, total_no_tickets, golden_ticket);
 
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
