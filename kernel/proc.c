@@ -291,6 +291,12 @@ void scheduler(void) {
       if (p->state != RUNNABLE)
         continue;
 
+       if ((count + p->tickets) < golden_ticket){
+        count += p->tickets;
+        continue;
+      }
+      
+
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
