@@ -4,7 +4,7 @@
 #include "kernel/fcntl.h"
 
 int main(int argc, char *argv[]) {
-  int pid;
+  // int pid,k;
   int n;
   int x, z;
   assign_tickets(20);
@@ -15,8 +15,8 @@ int main(int argc, char *argv[]) {
   if (n < 0 ||n > 20)
 	n = 2;
   x = 0;
-  pid = 0;
-  for(z = 0; z < 4000000000; z+=1)
+  // pid = 0;
+  for(z = 0; z < 4000; z+=1) // 000000
 	    x = x + 3.14*89.64; //Useless calculation to consume CPU Time
   // for ( k = 0; k < n; k++ ) {
   //   pid = fork ();

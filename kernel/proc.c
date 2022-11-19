@@ -7,7 +7,6 @@
 #include "kernel/proc.h"
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
-#include "user/user.h"
 
 int scheduling_algorithm = 0;
 
@@ -305,6 +304,7 @@ void scheduler(void) {
       proc = p;
       switchuvm(p);
       p->state = RUNNING;
+      if()
       swtch(&cpu->scheduler, proc->context);
       switchkvm();
 

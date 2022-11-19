@@ -7,7 +7,6 @@
 #include "kernel/memlayout.h"
 #include "kernel/mmu.h"
 #include "kernel/proc.h"
-#include "user/user.h"
 
 int sys_fork(void) { return fork(); }
 
