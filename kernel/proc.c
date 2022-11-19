@@ -528,7 +528,6 @@ int change_scheduler(int algo){
 }
 
 int assign_tickets(int tickets){
-  cprintf("Yahin hum mai\n");
   acquire(&ptable.lock);
   proc->tickets = tickets;
   release(&ptable.lock);
