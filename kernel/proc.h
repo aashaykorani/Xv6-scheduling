@@ -73,6 +73,7 @@ struct proc {
   enum procstate state;       // Process state
   int pid;                    // Process ID
   int priority;               // Priority of the process
+  int tickets;                // Number of tickets assigned to the process
   struct proc *parent;        // Parent process
   struct trapframe *tf;       // Trap frame for current syscall
   struct context *context;    // swtch() here to run process
