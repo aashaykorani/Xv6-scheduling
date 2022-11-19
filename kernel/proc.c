@@ -252,16 +252,17 @@ int wait(void) {
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
 void scheduler(void) {
-  cprintf("Algo = %d\n",scheduling_algorithm);
   struct proc *p;
   int foundproc = 1;
-  // int count = 0;
-  // long golden_ticket = 0;
-  // int total_no_tickets = 0;
+  int count = 0;
+  long golden_ticket = 0;
+  int total_no_tickets = 0;
 
   for (;;) {
     // Enable interrupts on this processor.
     sti();
+    // if(scheduling_algorithm==1)
+    //   cprintf("Algo = %d\n",scheduling_algorithm);
 
     if (!foundproc)
       hlt();
