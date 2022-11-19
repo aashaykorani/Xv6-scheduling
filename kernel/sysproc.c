@@ -89,5 +89,7 @@ sys_chpr(void)
 
 int sys_change_scheduler(void){
   int algo;
+  if(argint(0,&algo)<0)
+    return -1;
   return change_scheduler(algo);
 }
