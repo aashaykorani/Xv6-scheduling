@@ -1,3 +1,4 @@
+#include "kernel/syscall.h"
 #include "kernel/types.h"
 #include "kernel/x86.h"
 #include "kernel/defs.h"
@@ -84,4 +85,9 @@ sys_chpr(void)
     return -1;
 
   return chpr(pid, pr);
+}
+
+int sys_change_scheduler(void){
+  int algo;
+  return change_scheduler(algo);
 }

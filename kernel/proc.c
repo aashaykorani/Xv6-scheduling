@@ -8,8 +8,7 @@
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
 
-int scheduling_algorithm;
-scheduling_algorithm = 0;
+int scheduling_algorithm = 0;
 
 struct {
   struct spinlock lock;
@@ -484,5 +483,6 @@ chpr(int pid, int priority)
 }
 
 int change_scheduler(int algo){
-
+  scheduling_algorithm = algo;
+  return 0;
 }
