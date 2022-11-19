@@ -45,7 +45,7 @@ static struct proc *allocproc(void) {
 found:
   p->state = EMBRYO;
   p->pid = nextpid++;
-  p->priority = 10;
+  p->priority = ;
   p->tickets = 10;
   release(&ptable.lock);
 
