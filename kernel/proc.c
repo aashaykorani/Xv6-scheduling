@@ -155,7 +155,7 @@ int fork(void) {
   // lock to force the compiler to emit the np->state write last.
   acquire(&ptable.lock);
   np->state = RUNNABLE;
-  np->priority = proc->priority - 10;
+  chpr(np->pid,proc->priority-5);
   np->tickets = proc->tickets;
   release(&ptable.lock);
 
@@ -513,7 +513,7 @@ chpr(int pid, int priority)
   if (loop_break == 0)
     cprintf("No process with pid = %d found.\n",pid); // If the loop does not break, it means that the process with the mentioned pid was not found.
 	release(&ptable.lock);
-	return pid;
+	return ;
 }
 
 int change_scheduler(int algo){
