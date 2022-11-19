@@ -13,8 +13,12 @@ main(int argc, char *argv[])
   }
   if(strcmp(argv[1],"lottery")==0)
     algo = 1;
-  if(strcmp(argv[1],"rr")==0)
+  else if(strcmp(argv[1],"rr")==0)
     algo = 0;
+  else{
+    printf(2,"Usage: schedmod lottery || schedmod rr\n");
+    exit();
+  }
 //   algo = atoi(argv[1]);
   change_scheduler(algo);
     exit();
