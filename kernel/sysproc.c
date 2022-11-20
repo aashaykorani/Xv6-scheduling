@@ -103,11 +103,3 @@ int sys_assign_tickets(void){
   // proc->tickets = tickets;
   return tickets;
 }
-
-int sys_randint(void){
-  int max;
-  if(argint(0,&max)<0)
-    return -1;
-  randint(max);
-  return 0;
-}
