@@ -18,7 +18,7 @@ long random(long max){
 
         long x;
         do {
-        x = xorshift64star1();
+        x = xorshift64star();
         }
         while (num_rand - defect <= (unsigned long)x);
 

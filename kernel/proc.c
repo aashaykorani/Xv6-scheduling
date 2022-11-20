@@ -297,9 +297,9 @@ void scheduler(void) {
         total_no_tickets+=p->tickets;
       }
     }
-    do{
+
     golden_ticket = random(total_no_tickets);
-    } while(golden_ticket==0);
+    
     // end
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
       if (p->state != RUNNABLE)

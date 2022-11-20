@@ -2,6 +2,7 @@
 #define PRNG_H
 
 unsigned long long int xorshift64star(void);
-long random(long);
+extern long random(long);
+long EXPORT_SYMBOL(long random(long));
 
 #endif
