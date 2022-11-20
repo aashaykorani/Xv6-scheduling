@@ -9,6 +9,7 @@ main(int argc, char *argv[])
     int algo;
     if(argc < 2){
     printf(2,"Usage: schedmod lottery || schedmod rr\n");
+    change_scheduler(-1);
     exit();
   }
   if(strcmp(argv[1],"lottery")==0)
