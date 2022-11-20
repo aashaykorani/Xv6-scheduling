@@ -2,7 +2,7 @@
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
-#include "kernel/prng.h"
+#include "kernel/prng.c"
 
 
 int main(){
