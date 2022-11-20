@@ -127,7 +127,6 @@ int cps(void);
 int chpr(int pid, int priority);
 int change_scheduler(int algo);
 int assign_tickets(int tickets);
-char *strcat(char *s,const char * append);
 
 // swtch.S
 void swtch(struct context **, struct context *);

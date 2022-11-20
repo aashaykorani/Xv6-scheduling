@@ -7,7 +7,7 @@
 #include "kernel/proc.h"
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
-#include <string.h>
+// #include <string.h>
 // #include "user/user.h"
 
 int scheduling_algorithm = 0;
@@ -120,13 +120,6 @@ int growproc(int n) {
   return 0;
 }
 
-char *strcat(char *s, const char *append)
-{
-	char *save = s;
-	for (; *s; ++s);
-	while ((*s++ = *append++));
-	return(save);
-}
 
 // Create a new process copying p as the parent.
 // Sets up stack to return as if from system call.
@@ -165,8 +158,6 @@ int fork(void) {
   // lock to force the compiler to emit the np->state write last.
   acquire(&ptable.lock);
   np->state = RUNNABLE;
-  char * nameee = strcat(proc->name,"_child")
-  strncpy(np->name,nameee,sizeof(nameee));
   if(proc->priority - 5 >= -20)
     np->priority = proc->priority - 5;
   else
