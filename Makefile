@@ -158,6 +158,7 @@ UPROGS=\
 	$U/_schedmod\
 	$U/_dum1\
 	$U/_dum2\
+	$U/_process_info\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	./mkfs/mkfs fs.img README.md $(UPROGS)
