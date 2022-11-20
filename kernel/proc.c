@@ -497,7 +497,7 @@ for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 	else if(p->state == RUNNING)
  	  cprintf("%s \t %d \t RUNNING  \t %d \t\t %d \n ", p->name,p->pid,p->priority,p->tickets);
 	else if(p->state == RUNNABLE)
- 	  cprintf("%s \t %d \t RUNNABLE \t %d \t %d \n ", p->name,p->pid,p->priority,p->tickets);
+ 	  cprintf("%s \t %d \t RUNNABLE \t %d \t\t %d \n ", p->name,p->pid,p->priority,p->tickets);
 }
 release(&ptable.lock);
 return 22;
