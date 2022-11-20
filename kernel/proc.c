@@ -539,13 +539,13 @@ int change_scheduler(int algo){
   }
   scheduling_algorithm = algo;
   if (scheduling_algorithm == 1)
-    cprintf("Scheduling algorithm now changed from ROUND ROBIN to LOTTERY SCHEDULING\n");
+    cprintf("Scheduling algorithm now changed from ROUND ROBIN to LOTTERY SCHEDULING\n\n");
   if (scheduling_algorithm == 0)
-    cprintf("Scheduling algorithm now changed from LOTTERY SCHEDULING to ROUND ROBIN\n");
+    cprintf("Scheduling algorithm now changed from LOTTERY SCHEDULING to ROUND ROBIN\n\n");
   return 0;
 }
 
-int assign_tickets(int tickets){
+int assign_tickets(int pid,int tickets){
   acquire(&ptable.lock);
   proc->tickets = tickets;
   release(&ptable.lock);

@@ -126,7 +126,7 @@ void yield(void);
 int cps(void);
 int chpr(int pid, int priority);
 int change_scheduler(int algo);
-int assign_tickets(int tickets);
+int assign_tickets(int pid, int tickets);
 
 
 // swtch.S
