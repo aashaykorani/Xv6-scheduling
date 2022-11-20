@@ -4,7 +4,7 @@
 #include "kernel/fcntl.h"
 
 int main(int argc, char *argv[]) {
-  // printf(1,"Here = %d\n",assign_tickets(80));
+  assign_tickets(40);
   int pid;
   int k, n;
   int x, z;

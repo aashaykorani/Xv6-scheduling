@@ -156,6 +156,8 @@ UPROGS=\
 	$U/_nice_test\
 	$U/_prng_test\
 	$U/_schedmod\
+	$U/_schedmod\
+	$U/_schedmod\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	./mkfs/mkfs fs.img README.md $(UPROGS)
