@@ -22,5 +22,5 @@ long random(long max){
         }
         while (num_rand - defect <= (unsigned long)x);
 
-        return x/bin_size;
+        return (x/bin_size == 0)?1:x/bin_size;
 }
