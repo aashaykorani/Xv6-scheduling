@@ -320,8 +320,14 @@ void scheduler(void) {
       proc = 0;
     }
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
-      if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0) && (strncmp(p->name,"",sizeof(p->name))!=0))
-        cprintf("PID = %d, time = %d\n",p->pid,p->time);
+      if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0) && (strncmp(p->name,"",sizeof(p->name))!=0)){
+        if(p->state == RUNNABLE)
+          cprintf("1. PID = %d, time = %d\n",p->pid,p->time);
+        if(p->state == SLEEPING)
+          cprintf("2. PID = %d, time = %d\n",p->pid,p->time);
+        if(p->state == RUNNING)
+          cprintf("3. PID = %d, time = %d\n",p->pid,p->time);
+      }
     }
     release(&ptable.lock);
   }
