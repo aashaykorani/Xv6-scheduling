@@ -18,6 +18,7 @@ main(int argc, char *argv[])
     algo = 0;
   else{
     printf(2,"Usage: schedmod lottery || schedmod rr\n");
+    change_scheduler(-1);
     exit();
   }
 //   algo = atoi(argv[1]);
