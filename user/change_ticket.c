@@ -28,7 +28,7 @@ int main(int argc, char * argv[]){
     pid = atoi(argv[1]);
     tickets = atoi(argv[2]);
     if(tickets == 0){
-        printf(1,"Ticket has to be positive integer\n");
+        printf(1,"Ticket cannot be 0.\n");
         exit();
     }
     assign_tickets(pid,tickets);

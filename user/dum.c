@@ -21,10 +21,9 @@ int main(int argc, char *argv[]) {
   //  static char *arg[]= {"./ps",NULL};
   //  my_system(arg);
   int x;
-  for(int z = 0; z < 400000000; z+=1)
-	    x = x + 3.14*89.64; 
-  exit();
-  // int pid;
+  // for(int z = 0; z < 400000000; z+=1)
+	//     x = x + 3.14*89.64; 
+  int pid;
   // int k, n;
   // int x, z;
   // if(argc < 2)
@@ -36,19 +35,20 @@ int main(int argc, char *argv[]) {
   // x = 0;
   // pid = 0;
 
-  // for ( k = 0; k < n; k++ ) {
-  //   pid = fork ();
-  //   if ( pid < 0 ) {
-  //     printf(1, "%d failed in fork!\n", getpid());
-  //   } else if (pid > 0) {
-  //     // parent
-  //     printf(1, "Parent %d creating child %d\n",getpid(), pid);
-  //     wait();
-  //     }
-  //     else{
-	// printf(1,"Child %d created\n",getpid());
-	// for(z = 0; z < 4000000; z+=1)
-	//     x = x + 3.14*89.64; //Useless calculation to consume CPU Time
-	// break;
-  //     }
+  for ( int k = 0; k < 3; k++ ) {
+    pid = fork ();
+    if ( pid < 0 ) {
+      printf(1, "%d failed in fork!\n", getpid());
+    } else if (pid > 0) {
+      // parent
+      printf(1, "Parent %d creating child %d\n",getpid(), pid);
+      wait();
+      }
+      else{
+	printf(1,"Child %d created\n",getpid());
+	for(int z = 0; z < 4000000; z+=1)
+	    x = x + 3.14*89.64; //Useless calculation to consume CPU Time
+      }
+}
+ exit();
 }
