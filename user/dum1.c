@@ -3,6 +3,19 @@
 #include "user.h"
 #include "kernel/fcntl.h"
 
+#define NULL 0
+
+void my_system(char *arg[]){
+
+    int pid = fork();
+    if (pid == -1)
+        exit();
+    if (pid == 0)
+        exec(arg[0],arg);
+    else
+        wait();
+}
+
 int main(int argc, char *argv[]) {
   assign_tickets(100);
   printf(1,"==Running PS to show the inital state==\n\n"); 

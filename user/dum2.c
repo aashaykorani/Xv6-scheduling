@@ -3,8 +3,24 @@
 #include "user.h"
 #include "kernel/fcntl.h"
 
+#define NULL 0
+
+void my_system(char *arg[]){
+
+    int pid = fork();
+    if (pid == -1)
+        exit();
+    if (pid == 0)
+        exec(arg[0],arg);
+    else
+        wait();
+}
+
 int main(int argc, char *argv[]) {
   assign_tickets(250);
+  printf(1,"==Running PS to show the inital state==\n\n"); 
+   static char *arg[]= {"./ps",NULL};
+   my_system(arg);
   int x;
   for(int z = 0; z < 4000000; z+=1)
 	    x = x + 3.14*89.64;

@@ -18,6 +18,9 @@ void my_system(char *arg[]){
 
 int main(int argc, char *argv[]) {
   // printf(1,"Here = %d\n",assign_tickets(80));
+  printf(1,"==Running PS to show the inital state==\n\n"); 
+   static char *arg[]= {"./ps",NULL};
+   my_system(arg);
   int x;
   for(int z = 0; z < 4000000; z+=1)
 	    x = x + 3.14*89.64;
