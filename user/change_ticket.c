@@ -1,3 +1,4 @@
+// #include "kernel/defs.h"
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
@@ -15,12 +16,19 @@ int main(int argc, char * argv[]){
         printf(1,"Usage: chng_ticket pid tickets\n");
         exit();
     }
-    // int pid,tickets;
-    if(!isdigit(argv[1][0]))
-        printf(1,"PID cannot be negative");
+    int pid,tickets;
+    if(!isdigit(argv[1][0])){
+        printf(1,"PID has to be positive integer\n");
+        exit();
+    }
+    if(!isdigit(argv[2][0])){
+        printf(1,"Ticket has to be positive integer\n");
+        exit(); 
+    }
+    pid = atoi(argv[1]);
+    tickets = atoi(argv[2]);
+    assign_tickets(pid,tickets);
     exit();
-    // pid = atoi(argv[1]);
-    // tickets = atoi(argv[2]);
     
 
 }
