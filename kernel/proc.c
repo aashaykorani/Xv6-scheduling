@@ -176,7 +176,10 @@ void exit(void) {
   int fd;
   if (proc == initproc)
     panic("init exiting");
-  cprintf("Inside exit\n");
+  // cprintf("Inside exit %s\n",proc->name);
+  if((strncmp(proc->name,"sh",2)!=0) && (strncmp(proc->name,"init",4)!=0) && (strncmp(proc->name,"",sizeof(proc->name))!=0)){
+    cprintf("PID = %d, time = %d\n",proc->pid,proc->time);
+}
   // Close all open files.
   for (fd = 0; fd < NOFILE; fd++) {
     if (proc->ofile[fd]) {
