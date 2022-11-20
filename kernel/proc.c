@@ -306,7 +306,7 @@ void scheduler(void) {
 
       if(scheduling_algorithm == 1){
         count += p->tickets;
-       if ((count) < golden_ticket){
+       if (count < golden_ticket){
         continue;
       }
       p->time+=1;
