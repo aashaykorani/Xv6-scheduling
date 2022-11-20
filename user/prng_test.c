@@ -7,7 +7,7 @@
 int main(){
     int size = 900;
     int values[size];
-    printf(1,"%d",uptime());
+    int start = uptime();
     for(int i = 0;i<size;i++){
         values[i] = random(200); // Calling random function from the included prng file.
     }
@@ -27,6 +27,7 @@ int main(){
         mean += values[i];
     }
     // printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/size);
+    printf(1,"END = %d\n",uptime()-start);
     exit();
 }
 

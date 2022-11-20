@@ -6,7 +6,6 @@
 #define NULL 0
 
 void my_system(char *arg[]){
-
     int pid = fork();
     if (pid == -1)
         exit();
@@ -18,13 +17,14 @@ void my_system(char *arg[]){
 
 int main(int argc, char *argv[]) {
   assign_tickets(20);
+  int start = uptime();
   printf(1,"==Running PS to show the inital state==\n\n"); 
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
   int x;
   for(int z = 0; z < 400000000; z+=1)
 	    x = x + 3.14*89.64;
-    
+  printf(1,"Time = %d\n",uptime()-start);  
   exit();
   // int pid;
   // int k, n;
