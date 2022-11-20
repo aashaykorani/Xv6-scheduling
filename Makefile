@@ -153,7 +153,7 @@ UPROGS=\
 	$U/_ps\
 	$U/_nice\
 	$U/_dum\
-	$U/_nice_test\
+	$U/_ntest\
 	$U/_prng_test\
 	$U/_schedmod\
 	$U/_dum1\
