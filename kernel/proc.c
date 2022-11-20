@@ -566,7 +566,6 @@ long randint(long max){
         num_rand = (unsigned long) RAND_MAX + 1,
         bin_size = num_rand / num_bins,
         defect   = num_rand % num_bins;
-
         long x;
         do {
         x = xorshift64star();
