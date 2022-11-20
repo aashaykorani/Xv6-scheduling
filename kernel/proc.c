@@ -551,4 +551,7 @@ int assign_tickets(int tickets){
   return 0;
 }
 
-int proc_info(int flag)
+int proc_info(int flag){
+  show_process_info = flag;
+  return 0;
+}
