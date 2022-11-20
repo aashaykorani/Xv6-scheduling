@@ -15,15 +15,15 @@ int main(int argc, char *argv[]) {
       printf(1,"Usage: dum tickets.\n");
       exit();
     }
+    if(!isdigit(argv[1][0])){
+        printf(1,"Ticket has to be positive integer\n");
+        exit(); 
+    }
     int tickets;
     tickets = atoi(argv[1]);
     if(tickets==0){
       printf(1,"Tickets cannot be 0.\n");
       exit();
-    }
-    if(!isdigit(argv[1][0])){
-        printf(1,"Ticket has to be positive integer\n");
-        exit(); 
     }
     assign_tickets(getpid(), tickets);
   }

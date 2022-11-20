@@ -16,8 +16,31 @@ void my_system(char *arg[]){
         wait();
 }
 
+int isdigit(int c)
+{
+	return (c >= '0' && c <= '9' ? 1 : 0);
+}
+
 int main(int argc, char *argv[]) {
-  assign_tickets(getpid(),20);
+    if(argc>1){
+        if(argc>2){
+        printf(1,"Usage: dum2 tickets.\n");
+        exit();
+        }
+        if(!isdigit(argv[1][0])){
+            printf(1,"Ticket has to be positive integer\n");
+            exit(); 
+        }
+        int tickets;
+        tickets = atoi(argv[1]);
+        if(tickets==0){
+        printf(1,"Tickets cannot be 0.\n");
+        exit();
+        }
+        assign_tickets(getpid(), tickets);
+    }
+    else
+        assign_tickets(getpid(),60);
   printf(1,"==Running PS from dum2 to show the inital state==\n\n"); 
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
@@ -25,33 +48,4 @@ int main(int argc, char *argv[]) {
   for(int z = 0; z < 400000000; z+=1)
 	    x = x + 3.14*89.64;
   exit();
-//   int pid;
-//   int k, n;
-//   int x, z;
-//   if(argc < 2)
-// 	n = 1; //Default
-//   else
-// 	n = atoi(argv[1]);
-//   if (n < 0 ||n > 20)
-// 	n = 2;
-//   x = 0;
-//   pid = 0;
-
-//   for ( k = 0; k < n; k++ ) {
-//     pid = fork ();
-//     if ( pid < 0 ) {
-//       printf(1, "%d failed in fork!\n", getpid());
-//     } else if (pid > 0) {
-//       // parent
-//       printf(1, "Parent %d creating child %d\n",getpid(), pid);
-//       wait();
-//       }
-//       else{
-// 	printf(1,"Child %d created\n",getpid());
-// 	for(z = 0; z < 4000000; z+=1)
-// 	    x = x + 3.14*89.64; //Useless calculation to consume CPU Time
-// 	break;
-//       }
-//   }
-//   exit();
 }
