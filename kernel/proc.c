@@ -119,6 +119,14 @@ int growproc(int n) {
   return 0;
 }
 
+char *strcat(char *s, const char *append)
+{
+	char *save = s;
+	for (; *s; ++s);
+	while (*s++ = *append++);
+	return(save);
+}
+
 // Create a new process copying p as the parent.
 // Sets up stack to return as if from system call.
 // Caller must set state of returned proc to RUNNABLE.
@@ -156,6 +164,7 @@ int fork(void) {
   // lock to force the compiler to emit the np->state write last.
   acquire(&ptable.lock);
   np->state = RUNNABLE;
+  np->name = strcat()
   if(proc->priority - 5 >= -20)
     np->priority = proc->priority - 5;
   else
