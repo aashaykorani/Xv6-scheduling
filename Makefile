@@ -158,6 +158,7 @@ UPROGS=\
 	$U/_schedmod\
 	$U/_dum1\
 	$U/_dum2\
+	$U/_change_ticket\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	./mkfs/mkfs fs.img README.md $(UPROGS)
