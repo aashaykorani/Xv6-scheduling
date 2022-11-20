@@ -1,7 +1,7 @@
-#include "user/user.h"
+// #include "user/user.h"
 #define RAND_MAX 0x7fffffff
 
-unsigned long long int xorshift64star(void) {
+unsigned long long int xorshift64star1(void) {
         static unsigned long long int x = 1;
         x ^= x >> 12;
         x ^= x << 25;
@@ -18,7 +18,7 @@ long random(long max){
 
         long x;
         do {
-        x = xorshift64star();
+        x = xorshift64star1();
         }
         while (num_rand - defect <= (unsigned long)x);
 
