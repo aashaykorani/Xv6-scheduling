@@ -17,7 +17,7 @@ void my_system(char *arg[]){
 }
 
 int main(int argc, char *argv[]) {
-  assign_tickets(20);
+  assign_tickets(getpid(),20);
   printf(1,"==Running PS from dum2 to show the inital state==\n\n"); 
    static char *arg[]= {"./ps",NULL};
    my_system(arg);

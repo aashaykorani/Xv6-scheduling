@@ -95,10 +95,12 @@ int sys_change_scheduler(void){
 }
 
 int sys_assign_tickets(void){
-  int tickets;
-  if(argint(0,&tickets)<0)
+  int pid,tickets;
+  if(argint(0,&pid)<0)
     return -1;
-  assign_tickets(tickets);
+  if(argint(1,&tickets)<0)
+    return -1;
+  assign_tickets(pid,tickets);
   // acquire(&ptable.lock);
   // proc->tickets = tickets;
   return tickets;

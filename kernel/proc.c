@@ -546,8 +546,13 @@ int change_scheduler(int algo){
 }
 
 int assign_tickets(int pid,int tickets){
+  struct proc *p;
   acquire(&ptable.lock);
-  proc->tickets = tickets;
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+	  if(p->pid == pid){
+      p->tickets = tickets;
+      break;
+    }}
   release(&ptable.lock);
   return 0;
 }
