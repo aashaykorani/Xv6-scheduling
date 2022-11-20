@@ -327,12 +327,6 @@ void scheduler(void) {
       // It should have changed its p->state before coming back.
       proc = 0;
     }
-    // for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
-    //   if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0) && (strncmp(p->name,"",sizeof(p->name))!=0)){
-    //     if(p->state == ZOMBIE)
-    //       cprintf("PID = %d, time = %d\n",p->pid,p->time);
-    //   }
-    // }
     release(&ptable.lock);
   }
 }
