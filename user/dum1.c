@@ -17,6 +17,7 @@ void my_system(char *arg[]){
 }
 
 int main(int argc, char *argv[]) {
+  int start = uptime();
   assign_tickets(40);
   printf(1,"==Running PS to show the inital state==\n\n"); 
    static char *arg[]= {"./ps",NULL};
@@ -24,7 +25,7 @@ int main(int argc, char *argv[]) {
   int x;
   for(int z = 0; z < 400000000; z+=1)
 	    x = x + 3.14*89.64;
-    
+    printf(1,"Time = %d\n",uptime()-start);
   exit();
 //   int pid;
 //   int k, n;
