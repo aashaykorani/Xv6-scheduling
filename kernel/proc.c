@@ -314,8 +314,7 @@ void scheduler(void) {
       
       swtch(&cpu->scheduler, proc->context);
       switchkvm();
-      if(p->pid>3)
-        cprintf("%s ran for %s\n",p->name,p->state);
+      
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       proc = 0;
