@@ -7,6 +7,7 @@
 #include "kernel/proc.h"
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
+#include <string.h>
 // #include "user/user.h"
 
 int scheduling_algorithm = 0;
@@ -123,7 +124,7 @@ char *strcat(char *s, const char *append)
 {
 	char *save = s;
 	for (; *s; ++s);
-	while (*s++ = *append++);
+	while ((*s++ = *append++));
 	return(save);
 }
 
@@ -164,7 +165,8 @@ int fork(void) {
   // lock to force the compiler to emit the np->state write last.
   acquire(&ptable.lock);
   np->state = RUNNABLE;
-  np->name = strcat()
+  char * nameee = strcat(proc->name,"_child")
+  strncpy(np->name,nameee,sizeof(nameee));
   if(proc->priority - 5 >= -20)
     np->priority = proc->priority - 5;
   else
