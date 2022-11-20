@@ -10,9 +10,7 @@ int main(){
     int values[size];
     // int start = uptime();
     for(int i = 0;i<size;i++){
-        do{
         values[i] = random(200);
-        }while(values[i]==0); // Calling random function from the included prng file.
     }
     int max,min,mean= 0;
     for(int i = 0; i<size;i++){
