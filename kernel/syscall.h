@@ -27,5 +27,6 @@
 #define SYS_chpr 23
 #define SYS_change_scheduler 24
 #define SYS_assign_tickets 25
+#define SYS_proc_info 26
 
 #endif // XV6_SYSCALL_H
