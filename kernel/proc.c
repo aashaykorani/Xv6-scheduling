@@ -174,10 +174,9 @@ int fork(void) {
 void exit(void) {
   struct proc *p;
   int fd;
-
   if (proc == initproc)
     panic("init exiting");
-
+  cprintf("Inside exit\n");
   // Close all open files.
   for (fd = 0; fd < NOFILE; fd++) {
     if (proc->ofile[fd]) {
@@ -208,7 +207,7 @@ void exit(void) {
   // Jump into the scheduler, never to return.
   proc->state = ZOMBIE;
   sched();
-  cprintf("Exitted %s\n",p->name);
+  cprintf("Exitted %s\n",proc->name);
   panic("zombie exit");
 }
 
