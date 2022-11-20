@@ -50,5 +50,10 @@ int main() {
    static char *arg2[]= {"./nice","40","5",NULL};
    my_system(arg2);
 
+printf(1,"\n==Changing the priority of sh back to 10==\n\n");
+   static char *arg6[]= {"./nice","2","10",NULL};
+   my_system(arg6);
+
+
    exit();
 }
