@@ -9,7 +9,7 @@ int main(){
     int values[size];
 
     for(int i = 0;i<size;i++){
-        values[i] = random(100); // Calling random function from the included prng file.
+        values[i] = random(30000); // Calling random function from the included prng file.
     }
     int max,min,mean= 0;
     for(int i = 0; i<size;i++){
