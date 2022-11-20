@@ -303,6 +303,7 @@ void scheduler(void) {
       }
       if(strncmp(p->name,"sh",2)!=0)
         cprintf("Chosen process = %s\n",p->name);
+      p->time+=1;
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
@@ -317,6 +318,10 @@ void scheduler(void) {
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       proc = 0;
+    }
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+      if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0))
+        cprintf("Name = %s, time = %d\n",p->name,p->time);
     }
     release(&ptable.lock);
   }
