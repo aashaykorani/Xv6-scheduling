@@ -33,7 +33,7 @@ int cps(void);
 int chpr(int pid, int priority);
 int change_scheduler(int algo);
 int assign_tickets(int tickets);
-int proc_info(int flag);
+
 
 // ulib.c
 int stat(char *, struct stat *);

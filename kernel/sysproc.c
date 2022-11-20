@@ -104,10 +104,3 @@ int sys_assign_tickets(void){
   return tickets;
 }
 
-int sys_proc_info(void){
-  int flag;
-  if(argint(0,&flag)<0)
-    return -1;
-  proc_info(flag);
-  return 0;
-}
