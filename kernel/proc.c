@@ -160,7 +160,7 @@ int fork(void) {
     np->priority = proc->priority - 5;
   else
     np->priority = -20;
-  np->tickets = proc->tickets + 20;
+  np->tickets = proc->tickets + 5;
   release(&ptable.lock);
 
   return pid;
