@@ -231,6 +231,8 @@ int wait(void) {
         freevm(p->pgdir);
         p->state = UNUSED;
         p->pid = 0;
+        p->time = 0;
+        p
         p->parent = 0;
         p->name[0] = 0;
         p->killed = 0;
@@ -301,8 +303,8 @@ void scheduler(void) {
         count += p->tickets;
         continue;
       }
-      if(strncmp(p->name,"sh",2)!=0)
-        cprintf("Chosen process = %s\n",p->name);
+      // if(strncmp(p->name,"sh",2)!=0)
+      //   cprintf("Chosen process = %s\n",p->name);
       p->time+=1;
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
@@ -320,7 +322,7 @@ void scheduler(void) {
       proc = 0;
     }
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
-      if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0))
+      if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0) && (strncmp(p->name,"",sizeof(p->name))!=0))
         cprintf("Name = %s, time = %d\n",p->name,p->time);
     }
     release(&ptable.lock);
