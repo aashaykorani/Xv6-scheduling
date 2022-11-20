@@ -33,6 +33,4 @@ int main(int argc, char * argv[]){
     }
     assign_tickets(pid,tickets);
     exit();
-    
-
 }
