@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
   int x;
-  for(int z = 0; z < 4000000; z+=1)
+  for(int z = 0; z < 40000000; z+=1)
 	    x = x + 3.14*89.64;
     
   exit();

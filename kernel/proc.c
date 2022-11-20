@@ -297,14 +297,15 @@ void scheduler(void) {
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
       if (p->state != RUNNABLE)
         continue;
+      
 
+      if(scheduling_algorithm == 1){
        if ((count + p->tickets) < golden_ticket){
         count += p->tickets;
         continue;
       }
-      // if(strncmp(p->name,"sh",2)!=0)
-      //   cprintf("Chosen process = %s\n",p->name);
       p->time+=1;
+      }
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
@@ -322,8 +323,6 @@ void scheduler(void) {
     }
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
       if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0) && (strncmp(p->name,"",sizeof(p->name))!=0)){
-        // if(p->state == RUNNABLE)
-        //   cprintf("1. PID = %d, time = %d\n",p->pid,p->time);
         if(p->state == ZOMBIE)
           cprintf("2. PID = %d, time = %d\n",p->pid,p->time);
       }
