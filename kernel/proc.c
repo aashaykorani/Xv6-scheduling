@@ -231,8 +231,6 @@ int wait(void) {
         freevm(p->pgdir);
         p->state = UNUSED;
         p->pid = 0;
-        p->time = 0;
-        p
         p->parent = 0;
         p->name[0] = 0;
         p->killed = 0;
@@ -323,7 +321,7 @@ void scheduler(void) {
     }
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
       if((strncmp(p->name,"sh",2)!=0) && (strncmp(p->name,"init",4)!=0) && (strncmp(p->name,"",sizeof(p->name))!=0))
-        cprintf("Name = %s, time = %d\n",p->name,p->time);
+        cprintf("PID = %d, time = %d\n",p->pid,p->time);
     }
     release(&ptable.lock);
   }
