@@ -2,6 +2,7 @@
 #define XV6_USER_H
 
 // #include "kernel/defs.h"
+// #include "kernel/defs.h"
 #include "kernel/types.h"
 #include "kernel/fcntl.h"
 #include "kernel/stat.h"
@@ -33,6 +34,7 @@ int cps(void);
 int chpr(int pid, int priority);
 int change_scheduler(int algo);
 int assign_tickets(int tickets);
+long randint(long max);
 
 // ulib.c
 int stat(char *, struct stat *);

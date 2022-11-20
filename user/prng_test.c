@@ -1,19 +1,20 @@
+// #include "kernel/defs.h"
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "user.h"
-#include "kernel/prng.c"
+// #include "kernel/prng.c"
 
 
 int main(){
     int size = 900;
     int values[size];
-    int start = uptime();
+    // int start = uptime();
     for(int i = 0;i<size;i++){
-        values[i] = random(200); // Calling random function from the included prng file.
+        values[i] = randint(200); // Calling random function from the included prng file.
     }
     int max,min,mean= 0;
     for(int i = 0; i<size;i++){
-        // printf(1,"%d, ",values[i]);
+        printf(1,"%d, ",values[i]);
         if (i==0){
             max = values[i];
             min = values[i];
@@ -26,8 +27,8 @@ int main(){
         }
         mean += values[i];
     }
-    // printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/size);
-    printf(1,"END = %d\n",uptime()-start);
+    printf(1,"\nMax = %d, Min = %d, Mean = %d\n",max,min,mean/size);
+    // printf(1,"END = %d\n",uptime()-start);
     exit();
 }
 

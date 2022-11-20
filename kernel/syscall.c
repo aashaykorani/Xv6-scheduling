@@ -90,6 +90,7 @@ extern int sys_cps(void);
 extern int sys_chpr(void);
 extern int sys_change_scheduler(void);
 extern int sys_assign_tickets(void);
+extern int sys_randint(void);
 
 static int (*syscalls[])(void) = {
     [SYS_fork] sys_fork,   [SYS_exit] sys_exit,     [SYS_wait] sys_wait,
@@ -103,6 +104,7 @@ static int (*syscalls[])(void) = {
     [SYS_chpr] sys_chpr,
     [SYS_change_scheduler] sys_change_scheduler,
     [SYS_assign_tickets] sys_assign_tickets,
+    [SYS_randint] sys_randint,
 };
 
 void syscall(void) {
