@@ -162,7 +162,7 @@ int fork(void) {
     np->priority = proc->priority - 5;
   else
     np->priority = -20;
-  np->tickets = proc->tickets + 5;
+  np->tickets = proc->tickets;
   release(&ptable.lock);
 
   return pid;
@@ -178,7 +178,7 @@ void exit(void) {
     panic("init exiting");
   // cprintf("Inside exit %s\n",proc->name);
   if((strncmp(proc->name,"sh",2)!=0) && (strncmp(proc->name,"init",4)!=0) && (strncmp(proc->name,"",sizeof(proc->name))!=0)){
-    cprintf("Process %s(PID = %d) was CHOSEN %d times\n",proc->name,proc->pid,proc->time);
+    cprintf("Process %s(PID = %d) was CHOSEN TO RUN %d times\n",proc->name,proc->pid,proc->time);
 }
   // Close all open files.
   for (fd = 0; fd < NOFILE; fd++) {
