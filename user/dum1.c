@@ -5,6 +5,9 @@
 
 int main(int argc, char *argv[]) {
   assign_tickets(100);
+  printf(1,"==Running PS to show the inital state==\n\n"); 
+   static char *arg[]= {"./ps",NULL};
+   my_system(arg);
   int x;
   for(int z = 0; z < 4000000; z+=1)
 	    x = x + 3.14*89.64;
