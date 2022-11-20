@@ -13,6 +13,7 @@
 
 int scheduling_algorithm = 0;
 int show_process_info = 0;
+int changed_just_now = 0;
 
 struct {
   struct spinlock lock;
@@ -179,8 +180,12 @@ void exit(void) {
   if (proc == initproc)
     panic("init exiting");
   // cprintf("Inside exit %s\n",proc->name);
+  if(changed_just_now == 0){
   if((strncmp(proc->name,"sh",2)!=0) && (strncmp(proc->name,"init",4)!=0) && (strncmp(proc->name,"",sizeof(proc->name))!=0) && show_process_info!=0){
     cprintf("Process %s(PID = %d) was CHOSEN TO RUN %d times\n",proc->name,proc->pid,proc->time);
+}}
+else{
+  changed_just_now = 0;
 }
   // Close all open files.
   for (fd = 0; fd < NOFILE; fd++) {
@@ -553,5 +558,6 @@ int assign_tickets(int tickets){
 
 int proc_info(int flag){
   show_process_info = flag;
+  changed_just_now = 1;
   return 0;
 }
