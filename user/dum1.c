@@ -12,12 +12,12 @@ int isdigit(int c)
 int main(int argc, char *argv[]) {
   if(argc>1){
     if(argc>2){
-        printf(1,"Usage: dum1 || dum1 <tickets>. Default <tickets> = 40.\n");
+        printf(1,"Usage: dum1 || dum1 <tickets>. Default <tickets> = 200.\n");
         exit();
         }
         if(argv[1][0] == '-' && argv[1][1]=='h')
         {
-            printf(1,"Usage: dum1 || dum1 <tickets>. Default tickets = 40.\n");
+            printf(1,"Usage: dum1 || dum1 <tickets>. Default tickets = 200.\n");
             exit();
         }
     if(!isdigit(argv[1][0])){
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     assign_tickets(getpid(), tickets);
   }
   else
-    assign_tickets(getpid(),40);
+    assign_tickets(getpid(),200);
 
   int x;
   for(int z = 0; z < 400000000; z+=1)

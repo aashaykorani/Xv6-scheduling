@@ -24,12 +24,12 @@ int isdigit(int c)
 int main(int argc, char *argv[]) {
     if(argc>1){
         if(argc>2){
-        printf(1,"Usage: dum2 || dum2 <tickets>. Default tickets = 60.\n");
+        printf(1,"Usage: dum2 || dum2 <tickets>. Default tickets = 600.\n");
         exit();
         }
         if(argv[1][0] == '-' && argv[1][1]=='h')
         {
-            printf(1,"Usage: dum2 || dum2 <tickets>. Default tickets = 60.\n");
+            printf(1,"Usage: dum2 || dum2 <tickets>. Default tickets = 600.\n");
             exit();
         }
         if(!isdigit(argv[1][0])){
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
         assign_tickets(getpid(), tickets);
     }
     else
-        assign_tickets(getpid(),60);
+        assign_tickets(getpid(),600);
   printf(1,"==Running PS from dum2 to show the inital state==\n\n"); 
    static char *arg[]= {"./ps",NULL};
    my_system(arg);
