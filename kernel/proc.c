@@ -312,9 +312,10 @@ void scheduler(void) {
        if (count < lottery_ticket){
         continue;
       }
-      // p->time+=1;
       }
+      
       p->time+=1;
+
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
