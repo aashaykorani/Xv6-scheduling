@@ -12,7 +12,7 @@ int isdigit(int c)
 int main(int argc, char *argv[]) {
   if(argc>1){
     if(argc>2){
-      printf(1,"Usage: dum tickets.\n");
+      printf(1,"Usage: dum || dum tickets. Default tickets = 20.\n");
       exit();
     }
     if(!isdigit(argv[1][0])){
