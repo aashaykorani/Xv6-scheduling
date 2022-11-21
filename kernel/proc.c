@@ -269,7 +269,7 @@ void scheduler(void) {
   struct proc *p;
   int foundproc = 1;
   int count = 0;
-  long golden_ticket = 0;
+  long lottery_ticket = 0;
   int total_no_tickets = 0;
 
   for (;;) {
@@ -288,7 +288,7 @@ void scheduler(void) {
 
     if(scheduling_algorithm == 1){
     // My code
-    golden_ticket = 0;
+    lottery_ticket = 0;
     count = 0;
     total_no_tickets = 0;
  
@@ -298,7 +298,7 @@ void scheduler(void) {
         total_no_tickets+=p->tickets;
       }
     }
-    golden_ticket = random(total_no_tickets);
+    lottery_ticket = random(total_no_tickets);
     }
 
     // end
@@ -309,7 +309,7 @@ void scheduler(void) {
 
       if(scheduling_algorithm == 1){
         count += p->tickets;
-       if (count < golden_ticket){
+       if (count < lottery_ticket){
         continue;
       }
       // p->time+=1;
