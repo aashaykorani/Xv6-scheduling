@@ -178,8 +178,6 @@ void exit(void) {
   int fd;
   if (proc == initproc)
     panic("init exiting");
-  // cprintf("Inside exit %s\n",proc->name);
-  // if((strncmp(proc->name,"sh",2)!=0) && (strncmp(proc->name,"init",4)!=0) && (strncmp(proc->name,"",sizeof(proc->name))!=0))
   if(strncmp(proc->name,"dum",3)==0 || strncmp(proc->name,"fork_",5)==0)
     cprintf("Process %s(pid = %d) was CHOSEN TO RUN %d times\n",proc->name,proc->pid,proc->time);
 
