@@ -3,30 +3,31 @@
 #include "user.h"
 #include "kernel/fcntl.h"
 
+void forker(int nprocesses)
+{
+    int pid;
+
+    if(nprocesses > 0)
+    {
+        if ((pid = fork()) < 0)
+        {
+            exit();
+        }
+        else if (pid == 0)
+        {
+            int x;
+            for(int z = 0; z < 400000000; z+=1)
+                x = x + 3.14*89.64;
+        }
+        else if(pid > 0)
+        {
+            //parent
+            forker(nprocesses - 1);
+        }
+    }
+}
+
 int main(int argc, char * argv[]){
-    pid_t pids[10];
-    int i;
-    int n = 10;
-
-    /* Start children. */
-    for (i = 0; i < n; ++i) {
-    if ((pids[i] = fork()) < 0) {
-        perror("fork");
-        abort();
-    } else if (pids[i] == 0) {
-        DoWorkInChild();
-        exit(0);
-    }
-    }
-
-    /* Wait for children to exit. */
-    int status;
-    pid_t pid;
-    while (n > 0) {
-    pid = wait(&status);
-    printf("Child with PID %ld exited with status 0x%x.\n", (long)pid, status);
-    --n;  // TODO(pts): Remove pid from the pids array.
-    }
-    
+    forker(3);
     exit();
 }
