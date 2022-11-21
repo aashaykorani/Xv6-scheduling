@@ -12,9 +12,14 @@ int isdigit(int c)
 int main(int argc, char *argv[]) {
   if(argc>1){
     if(argc>2){
-      printf(1,"Usage: dum1 tickets.\n");
-      exit();
-    }
+        printf(1,"Usage: dum1 || dum1 <tickets>. Default <tickets> = 40.\n");
+        exit();
+        }
+        if(argv[1][0] == '-' && argv[1][1]=='h')
+        {
+            printf(1,"Usage: dum1 || dum1 <tickets>. Default tickets = 40.\n");
+            exit();
+        }
     if(!isdigit(argv[1][0])){
         printf(1,"Ticket has to be positive integer\n");
         exit(); 
