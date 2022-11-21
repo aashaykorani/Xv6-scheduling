@@ -7,9 +7,7 @@
 #include "kernel/proc.h"
 #include "kernel/spinlock.h"
 #include "kernel/prng.h"
-// #include "user/user.h"
-// #include <string.h>
-// #include "user/user.h"
+
 
 int scheduling_algorithm = 0;
 
@@ -48,6 +46,7 @@ static struct proc *allocproc(void) {
 found:
   p->state = EMBRYO;
   p->pid = nextpid++;
+  // Default priority of parent = 15
   p->priority = 15;
   p->time = 0;
   p->tickets = 10;
@@ -284,8 +283,8 @@ void scheduler(void) {
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
 
+    // Lottery scheduling code
     if(scheduling_algorithm == 1){
-    // My code
     lottery_ticket = 0;
     count = 0;
     total_no_tickets = 0;
@@ -298,12 +297,14 @@ void scheduler(void) {
     }
     lottery_ticket = random(total_no_tickets);
     }
-
     // end
+
+
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
       if (p->state != RUNNABLE)
         continue;
       
+      // Lottery Scheduling code
 
       if(scheduling_algorithm == 1){
         count += p->tickets;
@@ -311,7 +312,8 @@ void scheduler(void) {
         continue;
       }
       }
-      
+      // end
+
       p->time+=1;
 
       // Switch to chosen process.  It is the process's job
