@@ -1,4 +1,28 @@
-# VSCode Integration
+# Implementing Lottery Scheduling in Xv6
+
+## Code and Report
+Click [here](https://github.com/aashaykorani/Xv6-scheduling/blob/main/kernel/proc.c) to see the `proc.c` kernel code for my scheduler.
+
+Click [here](https://github.com/aashaykorani/Xv6-scheduling/blob/main/scheduling-report.pdf) to see my final report for this project.
+
+## Part 1 - Nice
+Having policies is the first step in implementing a non-trivial scheduler. For the sake of simplicity, you can implement the nice UNIX API as an extra system call. A higher nice value means lower priority. For more information type – man 2 nice on Linux system.
+You should be able to store the nice value in the process structure. Xv6 stores the PCB in struct proc in the file proc.h
+Note: You are not expected to enforce specific permissions on nice. On Linux systems, typically only root can increase priorities. But you can skip this part in the assignment.
+
+## Part 2 - Random Number Generator
+Lottery scheduling is a randomized heuristic. Hence, we need to design a pseudo-random number generator (PRNG). Since xv6 does not include a PNRG, you need to design one. This does not require strong randomness such as in cryptographic algorithms but a decent PRNG will do. 
+We recommend using the Xorshift family, although you can use anything else. If you do choose to use the Xorshift values, care should be taken to pick non-zero seed values. 
+
+## Part 3 - Scheduler				
+Mentioned in the link, lottery scheduling works by assigning tickets to each of the processes in the system. Then, in each time slice, it randomly picks a ‘winning’ ticket. It is up to you to decide how many more tickets to assign less nice processes and vice versa. 	
+The design problem is more open-ended. After reading the text mentioned in the link above, some of the design factors you might want to consider: 
+Which data structure makes sense?
+In what way would you handle a process leaving or entering a system all while maintaining a policy?
+How would you map the winning number back to the runnable process?
+Note: You should keep both the schedulers as an option. It is fine to select the scheduler (Round Robin vs. Lottery) to be a compile time option.
+Implement lottery scheduling in xv6. As mentioned, the particulars of the data structure and the policies to map the number of tickets to nice values is a design choice which is open-ended. You have to convince us that your implementation handles edge cases. Provide a detailed explanation of your approach. (Questions like ‘what if?’ should be mentioned and handled as well)
+Come up with at least 3 test cases for your lottery scheduler and provide screenshot(s) of your test cases along with an explanation. Also, mention how to run your test cases - in what file is it located and what to run.
 
 ## Compiling
 If you are using the class vm, to compile, just run `make xv6.img` in the project directory. That will build xv6.img. Assuimging that was successful, you can then run xv6 by running `make qemu`. If you make changes to any xv6, you will likely need to first clean out the "stale" binaries before rebuilding xv6.img. You can clean your build environment with `make clean`.
@@ -17,46 +41,6 @@ If you are compiling natively, will need to add a plugin to your vscode. To inst
 That will install [this](https://github.com/WebFreak001/code-debug) vscode module. You will also need to install
 gdb and lldb if you haven't already. On debian that is `sudo apt update && sudo apt install -y gdb lldb`, on arch 
 (btw) `sudo pacman -S gdb lldb`, and alpine `sudo apk add --update gdb lldb`.
-
-
-# Old stuff
-
-xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix
-Version 6 (v6).  xv6 loosely follows the structure and style of v6,
-but is implemented for a modern x86-based multiprocessor using ANSI C.
-
-ACKNOWLEDGMENTS
-
-xv6 is inspired by John Lions's Commentary on UNIX 6th Edition (Peer
-to Peer Communications; ISBN: 1-57398-013-7; 1st edition (June 14,
-2000)). See also http://pdos.csail.mit.edu/6.828/2014/xv6.html, which
-provides pointers to on-line resources for v6.
-
-xv6 borrows code from the following sources:
-    JOS (asm.h, elf.h, mmu.h, bootasm.S, ide.c, console.c, and others)
-    Plan 9 (entryother.S, mp.h, mp.c, lapic.c)
-    FreeBSD (ioapic.c)
-    NetBSD (console.c)
-
-The following people have made contributions:
-    Russ Cox (context switching, locking)
-    Cliff Frey (MP)
-    Xiao Yu (MP)
-    Nickolai Zeldovich
-    Austin Clements
-
-In addition, we are grateful for the bug reports and patches contributed by
-Silas Boyd-Wickizer, Peter Froehlich, Shivam Handa, Anders Kaseorg, Eddie
-Kohler, Yandong Mao, Hitoshi Mitake, Carmi Merimovich, Joel Nider, Greg Price,
-Eldar Sehayek, Yongming Shen, Stephen Tu, and Zouchangwei.
-
-The code in the files that constitute xv6 is
-Copyright 2006-2014 Frans Kaashoek, Robert Morris, and Russ Cox.
-
-ERROR REPORTS
-
-If you spot errors or have suggestions for improvement, please send
-email to Frans Kaashoek and Robert Morris (kaashoek,rtm@csail.mit.edu). 
 
 BUILDING AND RUNNING XV6
 
